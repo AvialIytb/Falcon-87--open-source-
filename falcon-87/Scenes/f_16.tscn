@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://y5rtxt45hpfa"]
+
+[ext_resource type="Script" uid="uid://dsopdksbpjq8k" path="res://f_16.gd" id="1_foucg"]
+[ext_resource type="Texture2D" uid="uid://d0prdi0ku38be" path="res://Sprites/F16/f16_right.png" id="1_nnki6"]
+[ext_resource type="PackedScene" uid="uid://8c162j7cfhp4" path="res://Components/avionics.tscn" id="3_ry8g3"]
+[ext_resource type="PackedScene" uid="uid://dmxrd71sp0hxs" path="res://Components/avionic_computer.tscn" id="4_foucg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnki6"]
+size = Vector2(42, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1esvq"]
+size = Vector2(10.92, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqouh"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvtcm"]
+size = Vector2(7, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8t4w"]
+size = Vector2(26, 6)
+
+[node name="F16" type="RigidBody2D"]
+script = ExtResource("1_foucg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -4.1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_nnki6")
+
+[node name="physicalHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_nnki6")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="EnginePos" type="Marker2D" parent="."]
+position = Vector2(-19, 0)
+
+[node name="Avionics" parent="." instance=ExtResource("3_ry8g3")]
+
+[node name="AvionicComputer" parent="." instance=ExtResource("4_foucg")]
+
+[node name="EngineHitbox" type="Area2D" parent="AvionicComputer"]
+position = Vector2(-15.522, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AvionicComputer/EngineHitbox"]
+shape = SubResource("RectangleShape2D_1esvq")
+debug_color = Color(0.895099, 6.64204e-06, 0.569913, 0.419608)
+
+[node name="ElevatorHitbox" type="Area2D" parent="AvionicComputer"]
+position = Vector2(-11, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AvionicComputer/ElevatorHitbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tqouh")
+debug_color = Color(0.549719, 0.492033, 0.485821, 0.419608)
+
+[node name="StabilizerHitbox" type="Area2D" parent="AvionicComputer"]
+position = Vector2(-16, -6)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AvionicComputer/StabilizerHitbox"]
+polygon = PackedVector2Array(-5.768, -4.272, -2.187, 4.49, 6.015, 4.495, 6.037, 3.047, -1.848, -4.23)
+
+[node name="RadarHitbox" type="Area2D" parent="AvionicComputer"]
+position = Vector2(19.53, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AvionicComputer/RadarHitbox"]
+position = Vector2(-0.0300007, 0.25)
+shape = SubResource("RectangleShape2D_xvtcm")
+debug_color = Color(0.0535658, 0.615789, 0, 0.419608)
+
+[node name="HullHitbox" type="Area2D" parent="AvionicComputer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AvionicComputer/HullHitbox"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_q8t4w")
+debug_color = Color(0.171033, 0.543215, 0.744244, 0.419608)

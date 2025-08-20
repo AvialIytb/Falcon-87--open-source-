@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxrd71sp0hxs"]
+
+[ext_resource type="Script" uid="uid://c276babbcpowh" path="res://Components/avionic_computer.gd" id="1_jc0ua"]
+
+[node name="AvionicComputer" type="Node2D"]
+script = ExtResource("1_jc0ua")

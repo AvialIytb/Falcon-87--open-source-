@@ -1,0 +1,1 @@
+you can delete physic and movement scripts we need to rewrite them

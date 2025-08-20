@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AircraftResource" load_steps=2 format=3 uid="uid://btbjxi60026t1"]
+
+[ext_resource type="Script" uid="uid://cb13jxpx4krrs" path="res://AircraftResource.gd" id="1_rc5vg"]
+
+[resource]
+script = ExtResource("1_rc5vg")
+max_speed = 700.0
+min_speed = 120.0
+max_acceleration = 400.0
+max_turn_rate = 2.0
+lift_factor = 1.0
+mass = 1.0
+metadata/_custom_type_script = "uid://cb13jxpx4krrs"

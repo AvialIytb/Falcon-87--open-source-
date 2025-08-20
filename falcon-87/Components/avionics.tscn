@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8c162j7cfhp4"]
+
+[ext_resource type="Script" uid="uid://ce17f6baegbwu" path="res://Components/avionics.gd" id="1_5sqyv"]
+
+[node name="Avionics" type="Node2D"]
+script = ExtResource("1_5sqyv")
